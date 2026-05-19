@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Quest</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="logo-box">
+        <div class="logo-icon">⚛</div>
+        <div>
+          <h1>Quantum Quest</h1>
+          <p>Interactive Quiz Arena</p>
+        </div>
+      </div>
+
+      <div class="top-center">
+        <div class="question-progress">
+          <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span>
+        </div>
+
+        <div class="timer-box">
+          TIME LEFT
+          <div id="timer">03:00</div>
+        </div>
+      </div>
+
+      <div class="score-card">
+        <div>
+          <h4>Total Score</h4>
+          <span id="score">0 pts</span>
+        </div>
+
+        <div>
+          <h4>Correct</h4>
+          <span id="correctCount">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <div class="main-layout">
+
+      <!-- LEFT PANEL -->
+      <aside class="sidebar left-sidebar">
+        <h2>Quiz Controls</h2>
+
+        <div class="leader-item active">
+          <span>🎯 Quiz Mode</span>
+          <span>Active</span>
+        </div>
+
+        <div class="leader-item">
+          <span>🧠 Difficulty</span>
+          <span>Medium</span>
+        </div>
+
+        <div class="leader-item">
+          <span>⚡ Bonus</span>
+          <span>+100 pts</span>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button class="menu-btn" id="hintBtn">💡 Show Hint</button>
+          <button class="menu-btn">⚙ Settings</button>
+          <button class="menu-btn">💬 Feedback</button>
+        </div>
+
+        <div id="hintBox" class="tip-card hidden">
+          <h3>Hint</h3>
+          <p id="hintText">Hint will appear here...</p>
+        </div>
+      </aside>
+
+      <!-- QUIZ AREA -->
+      <main class="quiz-area">
+
+        <div class="quiz-card">
+          <div class="question-top">
+            <h2 id="questionType">Single Select</h2>
+            <span id="questionNumber">1 / 10</span>
+          </div>
+
+          <div class="question-text" id="questionText">
+            Loading Question...
+          </div>
+
+          <div id="optionsContainer" class="options-container"></div>
+
+          <div class="fill-blank-box hidden" id="fillBlankBox">
+            <input type="text" id="fillInput" placeholder="Type your answer here..." />
+          </div>
+
+          <div class="quiz-actions">
+            <button id="prevBtn" class="secondary-btn">← Back</button>
+            <button id="nextBtn" class="primary-btn">Next →</button>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="sidebar right-sidebar">
+
+        <div class="challenge-card">
+          <h2>Daily Challenge</h2>
+          <div class="challenge-item">
+            <span>Multiplier</span>
+            <span>1.5x</span>
+          </div>
+          <div class="challenge-item">
+            <span>Correct Answers</span>
+            <span id="rightSideCorrect">0</span>
+          </div>
+          <div class="challenge-item">
+            <span>Attempts</span>
+            <span id="attempts">0</span>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <h3>Quiz Tips</h3>
+          <ul>
+            <li>Read carefully before answering.</li>
+            <li>Multi-select may have more than one answer.</li>
+            <li>Speed gives bonus points.</li>
+            <li>Try to beat your best score.</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+
+  <!-- RESULT MODAL -->
+  <div class="result-modal hidden" id="resultModal">
+    <div class="result-card">
+      <h1>🎉 Quiz Completed!</h1>
+
+      <div class="result-grid">
+        <div class="result-box">
+          <h3>Score</h3>
+          <p id="finalScore">0</p>
+        </div>
+
+        <div class="result-box">
+          <h3>Correct</h3>
+          <p id="finalCorrect">0</p>
+        </div>
+
+        <div class="result-box">
+          <h3>Wrong</h3>
+          <p id="finalWrong">0</p>
+        </div>
+
+        <div class="result-box">
+          <h3>Accuracy</h3>
+          <p id="accuracy">0%</p>
+        </div>
+      </div>
+
+      <button id="restartBtn" class="primary-btn restart-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
